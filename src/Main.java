@@ -11,16 +11,16 @@ public class Main {
         int fCase = 1;
         while(!(row == 0 || col == 0)) {
             theInput.nextLine();
-            int arr[][]= new int[row][col];
+            int [][] field = new int[row][col];
             for(int i = 0 ; i < row; i++) {
-                char [] field = theInput.nextLine().toCharArray();
+                char [] fieldRow = theInput.nextLine().toCharArray();
                 for(int j = 0; j < field.length; j++) {
-                    if(field[j] == '*') {
-                        adjacentAlert(arr, i, j);
+                    if(fieldRow[j] == '*') {
+                        adjacentAlert(field, i, j);
                     }
                 }
             }
-            fPrint(fCase, arr);
+            fPrint(fCase, field);
 
             row = theInput.nextInt();
             col = theInput.nextInt();
@@ -30,51 +30,51 @@ public class Main {
         }
     }
 
-    private static void adjacentAlert(int arr[][], int a, int b) {
+    private static void adjacentAlert(int [][] theField, int theRow, int theCol) {
         try {
-            arr[a][b] = -1;
+            theField[theRow][theCol] = -1;
         } catch (ArrayIndexOutOfBoundsException e) {}
         try {
-            if(!(arr[a-1][b-1] == -1))
-                arr[a-1][b-1]++;
+            if(!(theField[theRow-1][theCol-1] == -1))
+                theField[theRow-1][theCol-1]++;
         } catch (ArrayIndexOutOfBoundsException e) {}
         try {
-            if(!(arr[a-1][b] == -1))
-                arr[a-1][b]++;
+            if(!(theField[theRow-1][theCol] == -1))
+                theField[theRow-1][theCol]++;
         } catch (ArrayIndexOutOfBoundsException e) {}
         try {
-            if(!(arr[a-1][b+1] == -1))
-                arr[a-1][b+1]++;
+            if(!(theField[theRow-1][theCol+1] == -1))
+                theField[theRow-1][theCol+1]++;
         } catch (ArrayIndexOutOfBoundsException e) {}
         try {
-            if(!(arr[a][b-1] == -1))
-                arr[a][b-1]++;
+            if(!(theField[theRow][theCol-1] == -1))
+                theField[theRow][theCol-1]++;
         } catch (ArrayIndexOutOfBoundsException e) {}
         try {
-            if(!(arr[a][b+1] == -1))
-                arr[a][b+1]++;
+            if(!(theField[theRow][theCol+1] == -1))
+                theField[theRow][theCol+1]++;
         } catch (ArrayIndexOutOfBoundsException e) {}
         try {
-            if(!(arr[a+1][b-1] == -1))
-                arr[a+1][b-1]++;
+            if(!(theField[theRow+1][theCol-1] == -1))
+                theField[theRow+1][theCol-1]++;
         } catch (ArrayIndexOutOfBoundsException e) {}
         try {
-            if(!(arr[a+1][b] == -1))
-                arr[a+1][b]++;
+            if(!(theField[theRow+1][theCol] == -1))
+                theField[theRow+1][theCol]++;
         } catch (ArrayIndexOutOfBoundsException e) {}
         try {
-            if(!(arr[a+1][b+1] == -1))
-                arr[a+1][b+1]++;
+            if(!(theField[theRow+1][theCol+1] == -1))
+                theField[theRow+1][theCol+1]++;
         } catch (ArrayIndexOutOfBoundsException e) {}
     }
-    private static void fPrint(int fCase, int arr[][]) {
-        System.out.println("Field #"+ fCase +":");
-        for(int a = 0; a < arr.length;a++) {
-            for(int b = 0; b < arr[a].length; b++) {
-                if(arr[a][b] == -1)
+    private static void fPrint(int theFieldCase, int [][] theField) {
+        System.out.println("Field #"+ theFieldCase +":");
+        for(int i = 0; i < theField.length;i++) {
+            for(int j = 0; j < theField[i].length; j++) {
+                if(theField[i][j] == -1)
                     System.out.print("*");
                 else
-                    System.out.print(arr[a][b]);
+                    System.out.print(theField[i][j]);
             }
             System.out.println();
         }
