@@ -1,7 +1,9 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 public class Main {
-    public static void main(String[] theArgs){
-        Scanner input = new Scanner(System.in);
+    public static void main(String[] theArgs) throws FileNotFoundException {
+        Scanner input = new Scanner(new File("minesweeper_input.txt"));
         mineSweeper(input);
     }
 
@@ -14,7 +16,7 @@ public class Main {
             int [][] field = new int[row][col];
             for(int i = 0 ; i < row; i++) {
                 char [] fieldRow = theInput.nextLine().toCharArray();
-                for(int j = 0; j < field.length; j++) {
+                for(int j = 0; j < fieldRow.length; j++) {
                     if(fieldRow[j] == '*') {
                         adjacentAlert(field, i, j);
                     }
