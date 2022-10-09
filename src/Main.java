@@ -1,9 +1,8 @@
-import java.io.File;
-import java.io.FileNotFoundException;
+
 import java.util.Scanner;
 public class Main {
-    public static void main(String[] theArgs) throws FileNotFoundException {
-        Scanner input = new Scanner(new File("minesweeper_input.txt"));
+    public static void main(String[] theArgs){
+        Scanner input = new Scanner(System.in);
         mineSweeper(input);
     }
 
@@ -69,6 +68,7 @@ public class Main {
                 theField[theRow+1][theCol+1]++;
         } catch (ArrayIndexOutOfBoundsException e) {}
     }
+
     private static void fPrint(int theFieldCase, int [][] theField) {
         System.out.println("Field #"+ theFieldCase +":");
         for(int i = 0; i < theField.length;i++) {
