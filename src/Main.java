@@ -11,9 +11,9 @@ public class Main {
         int row = theInput.nextInt();
         int col = theInput.nextInt();
         int fCase = 1;
+        int [][] field = new int[row][col];
         while(!(row == 0 || col == 0)) {
             theInput.nextLine();
-            int [][] field = new int[row][col];
             for(int i = 0 ; i < row; i++) {
                 char [] fieldRow = theInput.nextLine().toCharArray();
                 for(int j = 0; j < fieldRow.length; j++) {
